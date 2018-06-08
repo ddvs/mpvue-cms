@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from '@/App'
 import store from '@/store'
+import MpvueRouterPatch from 'mpvue-router-patch'
 import api from 'ddv-restful-api-wxmini'
 import utilTime from 'ddv-util/time'
 import d from 'ddv-util'
@@ -17,6 +18,7 @@ api.setOnModelInitend(function (model) {
   })
 })
 
+Vue.use(MpvueRouterPatch)
 Vue.filter('d', d)
 d.extendInit(utilTime, api.util)
 const app = new Vue(App)
