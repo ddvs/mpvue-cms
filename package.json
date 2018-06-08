@@ -11,6 +11,8 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "ddv-restful-api-wxmini": "^0.2.0",
+    "ddv-util": "0.0.13",
     "mpvue": "^1.0.9",
     "vuex": "^3.0.0"
   },

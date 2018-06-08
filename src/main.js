@@ -1,11 +1,24 @@
 import Vue from 'vue'
 import App from '@/App'
 import store from '@/store'
+import api from 'ddv-restful-api-wxmini'
+import utilTime from 'ddv-util/time'
+import d from 'ddv-util'
 
 Vue.config.productionTip = false
 App.store = store
 App.mpType = 'app'
 
+api.setBaseUrl('https://api.test.com/')
+api.setOnAccessKeyTrySum(3)
+api.setOnModelInitend(function (model) {
+  model.headers({
+    'x-ddv-from-host': 'test.com'
+  })
+})
+
+Vue.filter('d', d)
+d.extendInit(utilTime, api.util)
 const app = new Vue(App)
 app.$mount()
 
