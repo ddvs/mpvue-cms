@@ -39,8 +39,8 @@ export default {
 
   methods: {
     bindViewTap () {
-      const url = './logs'
-      wx.navigateTo({ url })
+      const url = '/pages/logs'
+      this.$router.push(url)
     },
     getUserInfo () {
       // 调用登录接口
@@ -59,7 +59,6 @@ export default {
       console.log('clickHandle:', msg, ev)
     }
   },
-
   created () {
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()
