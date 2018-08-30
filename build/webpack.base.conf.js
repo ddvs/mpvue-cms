@@ -1,5 +1,4 @@
 const path = require('path')
-const fs = require('fs')
 const MpvuePlugin = require('webpack-mpvue-asset-plugin')
 const MpvueEntry = require('mpvue-entry')
 const utils = require('./utils')
@@ -16,7 +15,8 @@ module.exports = {
   target: require('mpvue-webpack-target'),
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
+    filename: utils.assetsPath('../[name]/js/main.js'),
+    chunkFilename: utils.assetsPath('../[id]/js/main.js'),
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
@@ -45,7 +45,7 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'mpvue-loader',
+        loader: '@f-loat/mpvue-loader',
         options: vueLoaderConfig
       },
       {
@@ -54,11 +54,11 @@ module.exports = {
         use: [
           'babel-loader',
           {
-            loader: 'mpvue-loader',
+            loader: '@f-loat/mpvue-loader',
             options: {
               checkMPEntry: true
             }
-          },
+          }
         ]
       },
       {
@@ -73,7 +73,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('media/[name]].[ext]')
+          name: utils.assetsPath('media/[name].[ext]')
         }
       },
       {

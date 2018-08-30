@@ -21,11 +21,6 @@ module.exports = merge(baseWebpackConfig, {
   // cheap-module-eval-source-map is faster for development
   // devtool: '#cheap-module-eval-source-map',
   devtool: '#source-map',
-  output: {
-    path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].js'),
-    chunkFilename: utils.assetsPath('js/[id].js')
-  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env
@@ -33,7 +28,7 @@ module.exports = merge(baseWebpackConfig, {
     // copy from ./webpack.prod.conf.js
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].wxss')
+      filename: utils.assetsPath('../[name]/css/main.wxss')
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
