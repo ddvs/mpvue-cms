@@ -1,27 +1,19 @@
 import Vue from 'vue'
 import App from '@/App'
 import store from '@/store'
+import d from '@/plugins/ddv-util'
+import i18n from '@/plugins/i18n'
 import MpvueRouterPatch from 'mpvue-router-patch'
-import api from 'ddv-restful-api-wxmini'
-import utilTime from 'ddv-util/time'
-import d from 'ddv-util'
 
 Vue.config.productionTip = false
-Vue.prototype.d = d
 App.store = store
+App.i18n = i18n
 App.mpType = 'app'
-
-api.setBaseUrl('https://api.test.com/')
-api.setOnAccessKeyTrySum(3)
-api.setOnModelInitend(function (model) {
-  model.headers({
-    'x-ddv-from-host': 'test.com'
-  })
-})
 
 Vue.use(MpvueRouterPatch)
 Vue.filter('d', d)
-d.extendInit(utilTime, api.util)
+Vue.prototype.$ddvUtil = d
+
 const app = new Vue(App)
 app.$mount()
 
