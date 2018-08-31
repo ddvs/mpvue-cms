@@ -84,12 +84,12 @@ function moduleAutoRetry (ddvUtil) {
       if (e.errorId === 'UNKNOW_ERROR' || e.message === 'Unknow Error') {
         wx.showToast({
           title: '网络不稳定，请重试',
-          icon: 'none'
+          image: '/static/icon-error.png'
         })
       } else {
         wx.showToast({
           title: e.message || e || '未知错误',
-          icon: 'none'
+          image: '/static/icon-error.png'
         })
       }
     }
