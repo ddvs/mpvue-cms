@@ -1,6 +1,7 @@
 const path = require('path')
 const MpvuePlugin = require('webpack-mpvue-asset-plugin')
 const MpvueEntry = require('mpvue-entry')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
@@ -9,14 +10,14 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+const entry = MpvueEntry.getEntry('./src/pages.js')
+
 module.exports = {
-  // 通过 src/pages.js 来配置要打包的页面，
-  entry: MpvueEntry.getEntry('src/pages.js'),
+  entry,
   target: require('mpvue-webpack-target'),
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('../[name]/js/main.js'),
-    chunkFilename: utils.assetsPath('../[id]/js/main.js'),
+    filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
@@ -24,9 +25,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue': 'mpvue',
       '@': resolve('src'),
-      '~': resolve('src')
+      '~': resolve('src'),
+      vue: 'mpvue'
     },
     symlinks: false,
     aliasFields: ['mpvue', 'weapp', 'browser'],
@@ -45,7 +46,7 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: '@f-loat/mpvue-loader',
+        loader: 'mpvue-loader',
         options: vueLoaderConfig
       },
       {
@@ -54,7 +55,7 @@ module.exports = {
         use: [
           'babel-loader',
           {
-            loader: '@f-loat/mpvue-loader',
+            loader: 'mpvue-loader',
             options: {
               checkMPEntry: true
             }
@@ -87,6 +88,13 @@ module.exports = {
   },
   plugins: [
     new MpvuePlugin(),
-    new MpvueEntry()
+    new MpvueEntry(),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: path.resolve(__dirname, '../dist/static'),
+        ignore: ['.*']
+      }
+    ])
   ]
 }

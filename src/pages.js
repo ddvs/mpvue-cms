@@ -1,9 +1,11 @@
 module.exports = [
   {
-    path: 'pages/index' // 页面路径，同时是 vue 文件相对于 src 的路径
-  }, {
+    path: 'pages/index'
+  },
+  {
     path: 'pages/counter'
-  }, {
+  },
+  {
     path: 'package/logs',
     subPackage: true,
     config: { // 页面配置，即 page.json 的内容

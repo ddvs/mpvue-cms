@@ -1,5 +1,6 @@
 {
 	"description": "项目配置文件。",
+	"libVersion": "2.0.9",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
@@ -9,8 +10,8 @@
 	},
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
-	"projectname": "mpvue-cms",
+	"appid": "wx67f4fb5afbef4453",
+	"projectname": "%E7%A1%85%E7%A2%B3%E9%BC%A0",
 	"condition": {
 		"search": {
 			"current": -1,
