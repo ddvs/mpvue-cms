@@ -10,8 +10,8 @@
 	},
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
-	"appid": "wx67f4fb5afbef4453",
-	"projectname": "%E7%A1%85%E7%A2%B3%E9%BC%A0",
+	"appid": "{{ appid }}",
+	"projectname": "{{ name }}",
 	"condition": {
 		"search": {
 			"current": -1,

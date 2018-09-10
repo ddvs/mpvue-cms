@@ -1,8 +1,8 @@
 {
-  "name": "mpvue-cms",
+  "name": "{{ name }}",
   "version": "1.0.0",
-  "description": "A Mpvue project",
-  "author": "HadiChan <861883474@qq.com>",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "ddv-restful-api-wxmini": "^0.2.2",
+    "ddv-restful-api-wxmini": "~0.2.2",
     "ddv-util": "0.0.14",
     "mpvue": "^1.0.13",
     "mpvue-router-patch": "^0.2.1",
