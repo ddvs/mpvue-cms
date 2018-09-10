@@ -35,11 +35,5 @@ module.exports = {
       'message': '小程序测试，敬请关注最新微信开发者工具的“测试报告”功能'
     }
   },
-  'filters': {
-    '.eslintrc.js': 'lint',
-    '.eslintignore': 'lint',
-    'src/pages/counter.vue': 'vuex',
-    'src/store/*': 'vuex'
-  },
   'completeMessage': 'To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at http://mpvue.com'
 }
