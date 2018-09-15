@@ -13,7 +13,7 @@ function moduleAutoRetry (ddvUtil) {
     return res
   })
   // 监听 autoRetry 异常事件
-  ddvUtil.autoRetry.onCatch((e, resolve, reject, reTry, options) => {
+  ddvUtil.autoRetry.onCatch((e, resolve, reject, reTry, options = {}) => {
     // 没有登录
     if (e.errorId === 'NO_ACCOUNT_LOGIN') {
       var isOpenLoginBox = ddvUtil.$loginBox.isOpen()
@@ -68,7 +68,9 @@ function moduleAutoRetry (ddvUtil) {
           })
       } else if (isRedirectLogin) {
         // 重定向到登录页
-        ddvUtil.redirect('/login?redirect=' + encodeURIComponent(ddvUtil.getFullPath()))
+        wx.redirectTo({
+          url: '/pages/login'
+        })
       }
     } else if (e === 'cancel') {
       wx.showToast({
