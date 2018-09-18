@@ -11,10 +11,10 @@ App.mpType = 'app'
 
 Vue.use(MpvueRouterPatch)
 Vue.prototype.$ddvUtil = ddvUtil
+Vue.prototype.$store = store
 Vue.mixin(dataMixins)
 
 const app = new Vue({
-  store,
   i18n,
   ...App
 })
