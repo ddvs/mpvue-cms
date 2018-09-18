@@ -1,5 +1,8 @@
 <script>
 export default {
+  onLaunch () {
+    this.$ddvUtil.inject && this.$ddvUtil.inject.call(this)
+  },
   created () {
     // 调用API从本地缓存中获取数据
     const logs = wx.getStorageSync('logs') || []

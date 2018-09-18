@@ -7,5 +7,6 @@ export default function (ddvUtil) {
   moduleAutoRetry(ddvUtil)
   moduleLoginBox(ddvUtil)
 
+  ddvUtil.historyPages = []
   ddvUtil.inject = function () {}
 }
