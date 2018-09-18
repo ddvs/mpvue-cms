@@ -32,6 +32,7 @@ module.exports = {
     wx: true,
     getApp: true,
     getPage: true,
-    requirePlugin: true
+    requirePlugin: true,
+    getCurrentPages: true
   }
 }

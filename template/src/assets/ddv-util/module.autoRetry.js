@@ -68,8 +68,10 @@ function moduleAutoRetry (ddvUtil) {
           })
       } else if (isRedirectLogin) {
         // 重定向到登录页
+        let currentPages = getCurrentPages()
+        let route = currentPages[currentPages.length - 1].route
         wx.redirectTo({
-          url: '/pages/login'
+          url: '/pages/login?redirect=' + route
         })
       }
     } else if (e === 'cancel') {
