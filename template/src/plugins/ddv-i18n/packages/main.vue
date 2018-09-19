@@ -1,5 +1,5 @@
 <template>
-  <span>{{word}}</span>
+  <span v-text="word"></span>
 </template>
 
 <script>
