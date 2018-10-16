@@ -27,6 +27,7 @@ module.exports = {
     alias: {
       '@': resolve('src'),
       '~': resolve('src'),
+      '@root': resolve('./'),
       vue: 'mpvue'
     },
     symlinks: false,
