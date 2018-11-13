@@ -3,6 +3,9 @@ const replaceTagSelectorMap = require('postcss-mpvue-wxss/lib/wxmlTagMap')
 
 module.exports = {
   "plugins": {
+    "postcss-flexible": require('postcss-flexible')({
+      remUnit: 75
+    }),
     "postcss-mpvue-wxss": {
       cleanSelector: ['*'],
       remToRpx: 100,
@@ -30,9 +33,6 @@ module.exports = {
         }
       }
     }),
-    "postcss-nested": {},
-    "postcss-flexible": require('postcss-flexible')({
-      remUnit: 75
-    })
+    "postcss-nested": {}
   }
 }
